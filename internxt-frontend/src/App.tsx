@@ -1,28 +1,23 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './components/context/AuthContext';
-import Login from './components/Auth//Login';
-import FilePanel from './components/FilePanel/FilePanel';
-import UploadFile from './components/FileUpload/FileUpload';
-import Register from './components/Auth/Register'; // Importar Register
-import NavBar from './components/Layout/NavBar';
+import FilePanel from './components/FilePanel/FilePanel'; // Exemplo de outro componente que pode ser carregado normalmente
+import LoadingSpinner from './components/LoadingSpinner'; // Um componente de loading
+
+// Lazy loading do Login
+const Login = React.lazy(() => import('./components/Auth/Login'));
 
 const App: React.FC = () => {
   return (
     <AuthProvider>
       <Router>
-        <div className="App">
-          <NavBar />
-          <h1>Internxt - Gestão de Arquivos</h1>
+        <Suspense fallback={<LoadingSpinner />}>
           <Routes>
-            <Route path="/" element={<h2>Bem-vindo ao Internxt!</h2>} />
-            <Route path="/upload" element={<UploadFile />} />
-            <Route path="/files" element={<FilePanel />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />{' '}
-            {/* Adicionando a rota de registro */}
+            <Route path="/files" element={<FilePanel />} />
+            {/* Outras rotas */}
           </Routes>
-        </div>
+        </Suspense>
       </Router>
     </AuthProvider>
   );

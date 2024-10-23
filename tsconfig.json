@@ -6,7 +6,10 @@
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["jest", "@testing-library/jest-dom"]
   },
-  "include": ["src"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"]
 }
+
