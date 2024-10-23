@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import LoadingSpinner from '../LoadingSpinner'; // Importe o LoadingSpinner
+import LoadingSpinner from '../LoadingSpinner'; 
 
 const Login: React.FC = () => {
-  const { login } = useAuth() || { login: () => Promise.reject() }; // Tratando o caso undefined
+  const { login } = useAuth() || { login: () => Promise.reject() }; 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // Estado para controlar o carregamento
+  const [isLoading, setIsLoading] = useState(false); 
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true); // Começa a carregar
+    setIsLoading(true); 
 
     try {
       await login(username, password);
