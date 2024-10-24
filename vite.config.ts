@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  root: '../internxt-frontend', // Se o seu index.html estiver na pasta src, ajuste conforme necessário
+  root: './', // Certifique-se de que o root está correto
   build: {
-    outDir: '../dist', // O diretório de saída para a build
+    outDir: './dist', // Diretório de saída
+    emptyOutDir: true, // Limpa o diretório de saída antes da build
   },
 });
