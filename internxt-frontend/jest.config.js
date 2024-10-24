@@ -5,8 +5,8 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
   },
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': '<rootDir>/__mocks__/styleMock.js', // Use o mock para arquivos de estilo
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy', // Mapeamento para CSS
   },
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
-  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  transformIgnorePatterns: ['<rootDir>/node_modules/'], // Ignora a transformação de arquivos em node_modules
 };

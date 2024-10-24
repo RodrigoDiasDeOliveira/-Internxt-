@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/LoadingSpinner.css';
+
 import { render, screen, waitFor } from '@testing-library/react';
 import { AuthContext } from '../components/context/AuthContext'; // Ajuste o caminho se necessário
 import FilePanel from '../components/FilePanel/FilePanel'; // Ajuste o caminho se necessário
