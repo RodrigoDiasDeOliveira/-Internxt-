@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/LoadingSpinner.css';
 import { render, screen } from '@testing-library/react';
 import { AuthContext } from '../components/context/AuthContext'; // Ajuste o caminho se necessário
 import Login from '../components/Auth/Login'; // Ajuste o caminho se necessário

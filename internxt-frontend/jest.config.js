@@ -1,13 +1,13 @@
 module.exports = {
-  preset: 'ts-jest', // ou 'vite' se você estiver usando Vite
+  preset: 'ts-jest',
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest', // Use ts-jest para transpilar arquivos TS
+    '^.+\\.tsx?$': 'ts-jest',
   },
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy', // Mock de estilos CSS
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'], // Configuração de ambiente de testes
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+  transformIgnorePatterns: ['<rootDir>/node_modules/'], // Ignora a transformação de arquivos em node_modules
 };
-
 
