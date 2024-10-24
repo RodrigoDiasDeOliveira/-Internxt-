@@ -5,8 +5,8 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
   },
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',  '^.+\\.svg$': 'jest-svg-transformer',// Mapeamento para CSS
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',  '^.+\\.svg$': 'jest-svg-transformer',
   },
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
-  transformIgnorePatterns: ['<rootDir>/node_modules/'], // Ignora a transformação de arquivos em node_modules
+  transformIgnorePatterns: ['<rootDir>/node_modules/'], 
 };

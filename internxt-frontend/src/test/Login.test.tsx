@@ -1,25 +1,34 @@
 import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import Login from '../components/Auth/Login';
 
-import { render, screen } from '@testing-library/react';
-import { AuthContext } from '../components/context/AuthContext'; // Ajuste o caminho se necessário
-import Login from '../components/Auth/Login'; // Ajuste o caminho se necessário
-import '@testing-library/jest-dom/extend-expect'; // Importa as extensões do jest-dom
+describe('Login Component', () => {
+  it('deve renderizar o formulário de login', () => {
+    render(<Login />);
+    
+    // Verifica se o campo de e-mail está presente
+    const emailInput = screen.getByLabelText(/Email/i);
+    expect(emailInput).toBeInTheDocument();
 
-test('renders login form', () => {
-  const mockLogin = jest.fn();
-  const mockLogout = jest.fn();
+    // Verifica se o campo de senha está presente
+    const passwordInput = screen.getByLabelText(/Senha/i);
+    expect(passwordInput).toBeInTheDocument();
 
-  render(
-    <AuthContext.Provider value={{ 
-      isAuthenticated: false, 
-      login: mockLogin, 
-      logout: mockLogout 
-    }}>
-      <Login />
-    </AuthContext.Provider>
-  );
+    // Verifica se o botão de login está presente
+    const loginButton = screen.getByRole('button', { name: /Entrar/i });
+    expect(loginButton).toBeInTheDocument();
+  });
 
-  expect(screen.getByLabelText(/usuário/i)).toBeInTheDocument();
-  expect(screen.getByLabelText(/senha/i)).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: /entrar/i })).toBeInTheDocument();
+  it('deve chamar a função de login ao clicar no botão', () => {
+    const mockLoginFunction = jest.fn();
+    render(<Login onLogin={mockLoginFunction} />);
+
+    const loginButton = screen.getByRole('button', { name: /Entrar/i });
+    
+    // Simula o clique no botão de login
+    fireEvent.click(loginButton);
+    
+    // Verifica se a função de login foi chamada
+    expect(mockLoginFunction).toHaveBeenCalledTimes(1);
+  });
 });
