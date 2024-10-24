@@ -15,20 +15,20 @@ import jwt from 'jsonwebtoken';
 await newUser.save();
 res.status(201).json({ message: 'Usuário registrado com sucesso.' });
 
-export const login = async (req: Request, res: Response) => {
-  const { email, password } = req.body;
+//export const login = async (req: Request, res: Response) => {
+ // const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
-    if (!user) {
-        return res.status(400).send('Credenciais inválidas.');
+  //  const user = await User.findOne({ email });
+    //if (!user) {
+    //    return res.status(400).send('Credenciais inválidas.');
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-        return res.status(400).send('Credenciais inválidas.');
-    }
+   // const isMatch = await bcrypt.compare(password, user.password);
+//if (!isMatch) {
+    //    return res.status(400).send('Credenciais inválidas.');
+  //  }
 
     // Geração do token JWT
-    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET!, { expiresIn: '1h' });
-    res.status(200).json({ token });
-    }};
+  //  const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET!, { expiresIn: '1h' });
+  //  res.status(200).json({ token });
+  //  }};
