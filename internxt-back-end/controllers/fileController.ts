@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import multer from 'multer';
 import { promisify } from 'node:util';
+import User from '../models/User';
 
 const upload = multer({ dest: 'uploads/' });
 
