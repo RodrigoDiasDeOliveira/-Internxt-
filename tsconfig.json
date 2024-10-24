@@ -9,7 +9,7 @@
     "skipLibCheck": true,
     "types": ["jest", "@testing-library/jest-dom"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx" , "custom.d.ts"],
   "exclude": ["node_modules"]
 }
 

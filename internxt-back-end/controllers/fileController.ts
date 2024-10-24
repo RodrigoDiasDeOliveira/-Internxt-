@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import File from '../models/File';
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import multer from 'multer';
-import { promisify } from 'util';
+import { promisify } from 'node:util';
 
 const upload = multer({ dest: 'uploads/' });
 
