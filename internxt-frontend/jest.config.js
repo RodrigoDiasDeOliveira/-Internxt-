@@ -5,7 +5,10 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
   },
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',  '^.+\\.svg$': 'jest-svg-transformer',
+    '\\.(css|less|scss|sass)$':  '<rootDir>/jest.mock.js',  
+  },
+  transform :{
+    '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   transformIgnorePatterns: ['<rootDir>/node_modules/'], 
