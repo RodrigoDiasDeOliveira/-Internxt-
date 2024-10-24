@@ -4,9 +4,11 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "react-jsx",
+    "types": ["jest", "node"],
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "isolatedModules": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
